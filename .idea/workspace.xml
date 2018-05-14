@@ -2,8 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="90023978-5e52-4568-948c-0f602c15fcce" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/autotrading/api/a.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/autotrading/db/b.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.gitignore" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -25,11 +24,21 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="b.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="b.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/autotrading/db/b.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="0">
               <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name=".gitignore" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/.gitignore">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="69">
+              <caret line="3" column="5" lean-forward="false" selection-start-line="3" selection-start-column="5" selection-end-line="3" selection-end-column="5" />
               <folding />
             </state>
           </provider>
@@ -52,6 +61,7 @@
       <list>
         <option value="$PROJECT_DIR$/autotrading/api/a.py" />
         <option value="$PROJECT_DIR$/autotrading/db/b.py" />
+        <option value="$PROJECT_DIR$/.gitignore" />
       </list>
     </option>
   </component>
@@ -89,11 +99,6 @@
             <path>
               <item name="BitCoinDev" type="b2602c69:ProjectViewProjectNode" />
               <item name="BitCoinDev" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="BitCoinDev" type="b2602c69:ProjectViewProjectNode" />
-              <item name="BitCoinDev" type="462c0819:PsiDirectoryNode" />
-              <item name="autotrading" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -180,6 +185,14 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.gitignore">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="69">
+          <caret line="3" column="5" lean-forward="false" selection-start-line="3" selection-start-column="5" selection-end-line="3" selection-end-column="5" />
           <folding />
         </state>
       </provider>
