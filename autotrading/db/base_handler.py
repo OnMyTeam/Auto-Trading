@@ -5,6 +5,7 @@ class DBHandler(ABC):
     def insert_items(self):
         pass
 
+
     @abstractmethod
     def find_items(self):
         pass
