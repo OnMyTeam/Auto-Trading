@@ -29,7 +29,7 @@ class MongoDBHandler(DBHandler):
         if db_name is None or collection_name is None:
             raise Exception("Need to db name and collection name")
         config = configparser.ConfigParser()
-        config.read('../../../conf/config.ini')
+        config.read('../../conf/config.ini')
 
         self.db_config = {}
         self.db_config["local_ip"] = config['MONGODB']['local_ip']

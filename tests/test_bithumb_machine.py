@@ -23,10 +23,15 @@ class BithumbMachineTestCase(unittest.TestCase):
 
     def test_get_wallet_status(self):
         print(inspect.stack()[0][3])
-        ticker = self.bithumb_machine.get_wallet_status("QTUM")
+        ticker = self.bithumb_machine.get_wallet_status("BTC")
         assert ticker
         print(ticker)
 
+    def test_get_list_my_orders(self):
+        print(inspect.stack()[0][3])
+        result = self.bithumb_machine.get_list_my_orders("BTC")
+        assert result
+        print(result)
 
     def tearDown(self):
         pass
