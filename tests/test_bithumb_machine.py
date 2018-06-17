@@ -27,9 +27,27 @@ class BithumbMachineTestCase(unittest.TestCase):
         assert ticker
         print(ticker)
 
-    def test_get_list_my_orders(self):
+    def test_get_my_order_status(self):
         print(inspect.stack()[0][3])
-        result = self.bithumb_machine.get_list_my_orders("BTC")
+        result = self.bithumb_machine.get_my_order_status("BTC")
+        assert result
+        print(result)
+
+    def test_buy_orders(self):
+        print(inspect.stack()[0][3])
+        result = self.bithumb_machine.buy_order("BTC",1,7000000)
+        assert result
+        print(result)
+
+    def test_sell_order(self):
+        print(inspect.stack()[0][3])
+        result = self.bithumb_machine.sell_order("BTC",1,7000000)
+        assert result
+        print(result)
+
+    def test_cancel_order(self):
+        print(inspect.stack()[0][3])
+        result = self.bithumb_machine.cancel_order("BTC","bid",7000000)
         assert result
         print(result)
 

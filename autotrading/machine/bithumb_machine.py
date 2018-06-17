@@ -31,7 +31,31 @@ class BithumbMachine(Machine):
 
         # self.USER_NAME = config['Bithumb']['username']
 
-    def get_ticker(self,currency_type="BTC"):
+    def exception_Currency(self,currency_type):
+        if currency_type is None:
+            raise Exception("Need to currency_type")
+
+        if currency_type not in self.TRADE_CURRENCY_TYPE:
+            raise Exception("Not Support currency type")
+
+    def common_function(self, endpoint, endpoint_item_array):
+
+        uri_array = dict(endpoint_item_array)
+        str_data = urllib.parse.urlencode(uri_array)
+        nonce = self.get_nonce()
+        data = endpoint + chr(0) + str_data + chr(0) + nonce
+        utf8_data = data.encode('utf-8')
+
+        key = self.CLIENT_SECRET
+        utf8_key = key.encode('utf-8')
+        headers = {'Content-Type': 'application/x-www-form-urlencoded',
+                   'Api-Key': self.CLIENT_ID,
+                   'Api-Sign': self.get_signature(utf8_data, bytes(utf8_key)),
+                   'Api-Nonce': nonce}
+
+        return str_data,headers
+
+    def get_ticker(self, currency_type="BTC"):
         if currency_type is None:
             raise Exception('Need to currency type')
         if currency_type not in self.TRADE_CURRENCY_TYPE:
@@ -112,46 +136,13 @@ class BithumbMachine(Machine):
             "currency" : currency_type
         }
 
-        uri_array = dict(endpoint_item_array)
-        str_data = urllib.parse.urlencode(uri_array)
-        nonce = self.get_nonce()
-        data = endpoint + chr(0) + str_data + chr(0) + nonce
-        utf8_data = data.encode('utf-8')
-        key = self.CLIENT_SECRET
-        utf8_key = key.encode('utf-8')
-        h = hmac.new(bytes(utf8_key), utf8_data, hashlib.sha512)
-        hex_output = h.hexdigest();
-        utf8_hex_output = hex_output.encode('utf-8')
-
-        api_sign = base64.b64encode(utf8_hex_output)
-        utf8_api_sign = api_sign.decode('utf-8')
-
-        # curl_handle = pycurl.Curl()
-        # curl_handle.setopt(pycurl.POST, 1)
-        # # curl_handle.setopt(pycurl.VERBOSE, 1); # vervose mode :: 1 => True, 0 => False
-        # curl_handle.setopt(pycurl.POSTFIELDS, str_data)
-        #
-        # url = self.BASE_API_URL + endpoint
-        # curl_handle.setopt(curl_handle.URL, url)
-        # curl_handle.setopt(curl_handle.HTTPHEADER,
-        #                    ['Api-Key: ' + self.CLIENT_ID, 'Api-Sign: ' + utf8_api_sign, 'Api-Nonce: ' + nonce])
-        # # curl_handle.setopt(curl_handle.WRITEFUNCTION, self.body_callback)
-        # curl_handle.perform()
-        #
-        # # response_code = curl_handle.getinfo(pycurl.RESPONSE_CODE); # Get http response status code.
-        #
-        # curl_handle.close()
-
-        headers = {'Content-Type': 'application/x-www-form-urlencoded',
-                   'Api-Key': self.CLIENT_ID,
-                   'Api-Sign': self.get_signature(utf8_data, bytes(utf8_key)),
-                   'Api-Nonce': nonce}
+        str_data, headers = self.common_function(endpoint,endpoint_item_array)
 
         res = requests.post(url_path, headers=headers, data=str_data)
         result = res.json()
         return result
 
-    def get_list_my_orders(self, currency_type):
+    def get_my_order_status(self, currency_type):
         """
         사용자의 현재 예약 중인 주문 현황을 조회하는 메서드 입니다.
         :param currency_type: 코인 이름
@@ -159,11 +150,8 @@ class BithumbMachine(Machine):
             거래 중인 현황을 리스트로 반환합니다.
         """
 
-        if currency_type is None:
-            raise Exception("Need to currency_type")
+        self.exception_Currency(currency_type)
 
-        if currency_type not in self.TRADE_CURRENCY_TYPE:
-            raise Exception("Not Support currency type")
         time.sleep(1)
         endpoint ="/info/orders"
         url_path = self.BASE_API_URL + endpoint
@@ -173,18 +161,89 @@ class BithumbMachine(Machine):
             "currency" : currency_type
         }
 
-        uri_array = dict(endpoint_item_array)
-        str_data = urllib.parse.urlencode(uri_array)
-        nonce = self.get_nonce()
-        data = endpoint + chr(0) + str_data + chr(0) + nonce
-        utf8_data = data.encode('utf-8')
+        str_data, headers = self.common_function(endpoint,endpoint_item_array)
+        res = requests.post(url_path,headers=headers, data=str_data)
+        result = res.json()
 
-        key = self.CLIENT_SECRET
-        utf8_key = key.encode('utf-8')
-        headers = {'Content-Type': 'application/x-www-form-urlencoded',
-                   'Api-Key': self.CLIENT_ID,
-                   'Api-Sign': self.get_signature(utf8_data, bytes(utf8_key)),
-                   'Api-Nonce': nonce}
+        return result
+    def buy_order(self, currency_type=None, price=None, qty=None, order_type="bid"):
+        """
+        매수주문 실행 매소드
+        :param currency_type(str): 화폐종류 
+        :param price(int): 1개 수량 주문에 해당하는 원화값 
+        :param qty: 주문 수량
+        :param order_type: 
+        :return: 주문 상태 반환
+        """
+        self.exception_Currency(currency_type)
+        time.sleep(1)
+        endpoint = "/trade/place"
+        url_path = self.BASE_API_URL + endpoint
+
+        endpoint_item_array ={
+            "endpoint": endpoint,
+            "order_currency": currency_type,
+            "payment_currenct": "KRW",
+            "units": qty,
+            "price": price,
+            "type": "bid"
+        }
+        str_data, headers = self.common_function(endpoint,endpoint_item_array)
+        res = requests.post(url_path,headers=headers, data=str_data)
+        result = res.json()
+
+        return result
+
+    def sell_order(self, currency_type=None, price=None, qty=None, order_type="ask"):
+        """
+        매도주문 실행 매소드
+        :param currency_type(str): 화폐종류
+        :param price(int): 1개 매도 주문에 해당하는 원화값
+        :param qty: 매도 주문 수량
+        :param order_type:
+        :return: 매도 상태 반환
+        """
+        self.exception_Currency(currency_type)
+        time.sleep(1)
+        endpoint = "/trade/place"
+        url_path = self.BASE_API_URL + endpoint
+
+        endpoint_item_array ={
+            "endpoint": endpoint,
+            "order_currency": currency_type,
+            "payment_currenct": "KRW",
+            "units": qty,
+            "price": price,
+            "type": "ask"
+        }
+        str_data, headers = self.common_function(endpoint,endpoint_item_array)
+        res = requests.post(url_path,headers=headers, data=str_data)
+        result = res.json()
+
+        return result
+
+    def cancel_order(self, currency_type=None, price=None, qty=None, order_type=None, order_id=None):
+        """
+        매수주문 실행 매소드
+        :param currency_type(str): 화폐종류
+        :param price(int): 1개 수량 주문에 해당하는 원화값
+        :param qty: 주문 수량
+        :param order_type(str): 취소하려는 주문이 종류(매수, 매도)
+        :param order_id: 취소 주문하려는 주문의 ID
+        :return: 주문 상태 반환
+        """
+        self.exception_Currency(currency_type)
+        time.sleep(1)
+        endpoint = "/trade/cancel"
+        url_path = self.BASE_API_URL + endpoint
+
+        endpoint_item_array ={
+            "endpoint": endpoint,
+            "order_currency": currency_type,
+            "type": order_type,
+            "order_id": order_id
+        }
+        str_data, headers = self.common_function(endpoint,endpoint_item_array)
         res = requests.post(url_path,headers=headers, data=str_data)
         result = res.json()
 

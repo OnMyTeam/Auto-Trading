@@ -16,13 +16,13 @@ class Machine(ABC):
 
         """
         pass
-    # @abstractmethod
-    # def get_wallet_status(self):
-    #     """
-    #     사용자 지갑정보 조회 메서드
-    #
-    #     """
-    #     pass
+    @abstractmethod
+    def get_wallet_status(self):
+        """
+        사용자 지갑정보 조회 메서드
+
+        """
+        pass
     # @abstractmethod
     # def get_token(self):
     #     pass
@@ -36,26 +36,28 @@ class Machine(ABC):
     #
     #     pass
     #
-    # @abstractmethod
-    # def buy_order(self):
-    #     """
-    #     ㅐ무수주문 실행 메서드
-    #
-    #     """
-    #     pass
-    # @abstractmethod
-    # def sell_order(self):
-    #     """
-    #     매도주문 실행 메서드
-    #
-    #     """
-    #     pass
-    #
-    # @abstractmethod
-    # def cancel_order(self):
-    #     pass
-    #
-    # @abstractmethod
-    # def get_my_order_status(self):
-    #     pass
+    @abstractmethod
+    def buy_order(self):
+        """
+        ㅐ무수주문 실행 메서드
+
+        """
+        pass
+    @abstractmethod
+    def sell_order(self):
+        """
+        매도주문 실행 메서드
+        """
+        pass
+
+    @abstractmethod
+    def cancel_order(self):
+        pass
+
+    @abstractmethod
+    def get_my_order_status(self):
+        """
+        나의 주문현황 확인
+        """
+        pass
 
