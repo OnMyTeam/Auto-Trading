@@ -3,10 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="90023978-5e52-4568-948c-0f602c15fcce" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/autotrading/machine/base_machine.py" beforeDir="false" afterPath="$PROJECT_DIR$/autotrading/machine/base_machine.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/autotrading/machine/bithumb_machine.py" beforeDir="false" afterPath="$PROJECT_DIR$/autotrading/machine/bithumb_machine.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/autotrading/strategy/base_strategy.py" beforeDir="false" afterPath="$PROJECT_DIR$/autotrading/strategy/base_strategy.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/test_bithumb_machine.py" beforeDir="false" afterPath="$PROJECT_DIR$/tests/test_bithumb_machine.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -29,17 +27,17 @@
       <file leaf-file-name="config.ini" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/conf/config.ini">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="391">
-              <caret line="17" column="10" selection-start-line="17" selection-start-column="10" selection-end-line="17" selection-end-column="10" />
+            <state relative-caret-position="322">
+              <caret line="14" column="7" selection-start-line="14" selection-start-column="7" selection-end-line="14" selection-end-column="7" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="bithumb_machine.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="bithumb_machine.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/autotrading/machine/bithumb_machine.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="118">
-              <caret line="196" column="82" selection-start-line="196" selection-start-column="82" selection-end-line="196" selection-end-column="82" />
+            <state relative-caret-position="23">
+              <caret line="30" selection-start-line="30" selection-end-line="30" />
               <folding>
                 <element signature="e#0#22#0" expanded="true" />
               </folding>
@@ -50,8 +48,8 @@
       <file leaf-file-name="test_bithumb_machine.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/tests/test_bithumb_machine.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="325">
-              <caret line="34" lean-forward="true" selection-start-line="34" selection-end-line="34" />
+            <state relative-caret-position="667">
+              <caret line="31" column="53" lean-forward="true" selection-start-line="31" selection-start-column="53" selection-end-line="31" selection-end-column="53" />
               <folding>
                 <element signature="e#0#15#0" expanded="true" />
               </folding>
@@ -59,11 +57,20 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="base_strategy.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="scheduler_currency_price.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/autotrading/scheduler/scheduler_currency_price.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="414">
+              <caret line="18" column="23" lean-forward="true" selection-start-line="18" selection-start-column="23" selection-end-line="18" selection-end-column="23" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="base_strategy.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/autotrading/strategy/base_strategy.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="256">
-              <caret line="20" column="16" lean-forward="true" selection-start-line="20" selection-start-column="16" selection-end-line="20" selection-end-column="16" />
+            <state relative-caret-position="253">
+              <caret line="15" column="11" lean-forward="true" selection-start-line="15" selection-start-column="11" selection-end-line="15" selection-end-column="11" />
               <folding>
                 <element signature="e#0#10#0" expanded="true" />
               </folding>
@@ -74,7 +81,7 @@
       <file leaf-file-name="base_machine.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/autotrading/machine/base_machine.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="256">
+            <state relative-caret-position="1219">
               <caret line="53" column="20" selection-start-line="53" selection-start-column="8" selection-end-line="53" selection-end-column="20" />
             </state>
           </provider>
@@ -83,7 +90,7 @@
       <file leaf-file-name="mongodb_handler.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/autotrading/db/mongodb/mongodb_handler.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="184">
+            <state relative-caret-position="1150">
               <caret line="53" lean-forward="true" selection-start-line="53" selection-end-line="53" />
             </state>
           </provider>
@@ -93,7 +100,7 @@
         <entry file="file://$PROJECT_DIR$/scripts/scheduler_currency_price.sh">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="69">
-              <caret line="3" column="6" selection-start-line="3" selection-start-column="6" selection-end-line="3" selection-end-column="6" />
+              <caret line="3" column="24" lean-forward="true" selection-start-line="3" selection-start-column="24" selection-end-line="3" selection-end-column="24" />
             </state>
           </provider>
         </entry>
@@ -157,8 +164,8 @@
         <option value="$PROJECT_DIR$/autotrading/logger.py" />
         <option value="$PROJECT_DIR$/autotrading/machine/base_machine.py" />
         <option value="$PROJECT_DIR$/tests/test_bithumb_machine.py" />
-        <option value="$PROJECT_DIR$/autotrading/machine/bithumb_machine.py" />
         <option value="$PROJECT_DIR$/autotrading/strategy/base_strategy.py" />
+        <option value="$PROJECT_DIR$/autotrading/machine/bithumb_machine.py" />
       </list>
     </option>
   </component>
@@ -169,16 +176,17 @@
     <sorting>DEFINITION_ORDER</sorting>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="330" />
-    <option name="y" value="65" />
-    <option name="width" value="1865" />
-    <option name="height" value="1100" />
+    <option name="x" value="1964" />
+    <option name="y" value="82" />
+    <option name="width" value="1843" />
+    <option name="height" value="1086" />
   </component>
   <component name="ProjectView">
     <navigator proportions="" version="1">
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -214,6 +222,12 @@
               <item name="BitCoinDev" type="b2602c69:ProjectViewProjectNode" />
               <item name="BitCoinDev" type="462c0819:PsiDirectoryNode" />
               <item name="autotrading" type="462c0819:PsiDirectoryNode" />
+              <item name="scheduler" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="BitCoinDev" type="b2602c69:ProjectViewProjectNode" />
+              <item name="BitCoinDev" type="462c0819:PsiDirectoryNode" />
+              <item name="autotrading" type="462c0819:PsiDirectoryNode" />
               <item name="strategy" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -229,7 +243,6 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -265,7 +278,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.test_bithumb_machine">
+  <component name="RunManager" selected="Python.scheduler_currency_price">
     <configuration name="base_strategy" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="BitCoinDev" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -462,10 +475,10 @@
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.scheduler_currency_price" />
         <item itemvalue="Python.test_bithumb_machine" />
         <item itemvalue="Python.base_strategy" />
         <item itemvalue="Python.logger" />
-        <item itemvalue="Python.scheduler_currency_price" />
         <item itemvalue="Python.bithumb_machine" />
       </list>
     </recent_temporary>
@@ -516,15 +529,15 @@
     </history-entry>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-7" y="-7" width="1488" height="878" extended-state="6" />
+    <frame x="1912" y="-8" width="1874" height="1096" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.16689281" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.13186222" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
       <window_info anchor="bottom" id="Version Control" order="9" />
       <window_info anchor="bottom" id="Python Console" order="7" />
-      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.32845744" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.39772728" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="bottom" id="Terminal" order="8" />
       <window_info id="Favorites" order="2" side_tool="true" />
@@ -746,20 +759,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/autotrading/scheduler/scheduler_currency_price.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="230">
-          <caret line="13" column="14" selection-start-line="13" selection-start-column="14" selection-end-line="13" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/conf/config.ini">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="391">
-          <caret line="17" column="10" selection-start-line="17" selection-start-column="10" selection-end-line="17" selection-end-column="10" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://C:/Miniconda3/envs/bitcoin/Lib/site-packages/pymongo/results.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="236">
@@ -777,31 +776,55 @@
     <entry file="file://$PROJECT_DIR$/autotrading/strategy/step_trade.py">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/scripts/scheduler_currency_price.sh">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="69">
-          <caret line="3" column="6" selection-start-line="3" selection-start-column="6" selection-end-line="3" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/autotrading/db/mongodb/mongodb_handler.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="184">
+        <state relative-caret-position="1150">
           <caret line="53" lean-forward="true" selection-start-line="53" selection-end-line="53" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/autotrading/machine/base_machine.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="256">
+        <state relative-caret-position="1219">
           <caret line="53" column="20" selection-start-line="53" selection-start-column="8" selection-end-line="53" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/autotrading/strategy/base_strategy.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="253">
+          <caret line="15" column="11" lean-forward="true" selection-start-line="15" selection-start-column="11" selection-end-line="15" selection-end-column="11" />
+          <folding>
+            <element signature="e#0#10#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/conf/config.ini">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="322">
+          <caret line="14" column="7" selection-start-line="14" selection-start-column="7" selection-end-line="14" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/scripts/scheduler_currency_price.sh">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="69">
+          <caret line="3" column="24" lean-forward="true" selection-start-line="3" selection-start-column="24" selection-end-line="3" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/autotrading/scheduler/scheduler_currency_price.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="414">
+          <caret line="18" column="23" lean-forward="true" selection-start-line="18" selection-start-column="23" selection-end-line="18" selection-end-column="23" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/tests/test_bithumb_machine.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="325">
-          <caret line="34" lean-forward="true" selection-start-line="34" selection-end-line="34" />
+        <state relative-caret-position="667">
+          <caret line="31" column="53" lean-forward="true" selection-start-line="31" selection-start-column="53" selection-end-line="31" selection-end-column="53" />
           <folding>
             <element signature="e#0#15#0" expanded="true" />
           </folding>
@@ -810,20 +833,10 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/autotrading/machine/bithumb_machine.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="118">
-          <caret line="196" column="82" selection-start-line="196" selection-start-column="82" selection-end-line="196" selection-end-column="82" />
+        <state relative-caret-position="23">
+          <caret line="30" selection-start-line="30" selection-end-line="30" />
           <folding>
             <element signature="e#0#22#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/autotrading/strategy/base_strategy.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="256">
-          <caret line="20" column="16" lean-forward="true" selection-start-line="20" selection-start-column="16" selection-end-line="20" selection-end-column="16" />
-          <folding>
-            <element signature="e#0#10#0" expanded="true" />
           </folding>
         </state>
       </provider>

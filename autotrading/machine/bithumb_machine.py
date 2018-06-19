@@ -21,7 +21,7 @@ class BithumbMachine(Machine):
     BASE_API_URL = "https://api.bithumb.com"
     TRADE_CURRENCY_TYPE = ["BTC","ETH","DASH","LTC","ETC","XRP","BCH","XMR","ZEC","QTUM","BTG","EOS",
                            "ICX", "VEN", "TRX", "ELF", "MITH", "MCO", "OMG", "KNC", "GNT", "HSR", "ZIL", "ETHOS","ALL"]
-
+    # 'F:\\BitCoinDev\\conf\\config.ini
     def __init__(self):
 
         config = configparser.ConfigParser()

@@ -28,7 +28,6 @@ class Strategy(ABC):
 
     def order_buy_transaction(self, machine=None, db_handler=None, currency_type=None, item=None, order_type="limit"):
         """
-        
         :param machine(obj): 매수주문하려는 거래소 모듈 객체
         :param db_handler(obj): 매수주문 정보를 입력할 데이터베이스 모듈 객체 
         :param currency_type(str): 매수주문하려는 화폐 종류
