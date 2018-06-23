@@ -1,3 +1,4 @@
+import sys
 from autotrading.strategy.base_strategy import Strategy
 from autotrading.machine.bithumb_machine import BithumbMachine
 from autotrading.db.mongodb.mongodb_handler import MongoDBHandler
@@ -18,4 +19,33 @@ class StepTrade(Strategy):
             self.currency_type = currency_type
 
         self.machine = machine
+        self.pusher = pusher
+        result = self.db_handler.find_item({"name":"strategy"},"trader","trade_strategy")
+        self.params = result[0]
+        if self.params["is_active"]=="inactive":
+            logger.info("inactive")
+            return
+        logger.info(self.currency_type)
+        resultlast = self.machine.get_ticker(self.currency_type)
+        self.last_val = int(resultlast["last"])
+
+    def run(self):
+        if self.params["is_activate"]=="active":
+            self.check_my_order()
+            self.scenario()
+
+    def check_my_ordered(self):
+        #Check by ordered
+
+if __name__ == "__main__":
+    mongodb = MongoDBHandler()
+    bithumb_machine = BithumbMachine()
+    pusher = PushSlack()
+
+    if len(sys.argv) > 0:
+        trader = StepTrade(machine=bithumb_machine, db_handler=mongodb, strategy=sys.argv[1], currency_type=sys.argv[2],
+                           pusher=pusher)
+        trader.run()
+
+
 
