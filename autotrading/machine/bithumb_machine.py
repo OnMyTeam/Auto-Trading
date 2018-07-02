@@ -2,6 +2,7 @@ import requests,sys,os
 import time
 import math
 from autotrading.machine.base_machine import Machine
+from autotrading.machine.xcoin_api_client import *
 import configparser
 import json
 import base64
@@ -19,8 +20,10 @@ import urllib
 
 class BithumbMachine(Machine):
     BASE_API_URL = "https://api.bithumb.com"
-    TRADE_CURRENCY_TYPE = ["BTC","ETH","DASH","LTC","ETC","XRP","BCH","XMR","ZEC","QTUM","BTG","EOS",
-                           "ICX", "VEN", "TRX", "ELF", "MITH", "MCO", "OMG", "KNC", "GNT", "HSR", "ZIL", "ETHOS","ALL"]
+    TRADE_CURRENCY_TYPE = ["BTC", "ETH", "DASH", "LTC", "ETC", "XRP", "BCH", "XMR", "ZEC", "QTUM", "BTG", "EOS",
+                           "ICX", "VEN", "TRX", "ELF", "MITH", "MCO", "OMG", "KNC", "GNT", "HSR", "ZIL", "ETHOS",
+                           "PAY", "WAX", "POWR", "LRC", "GTO", "STEEM", "STRAT", "ZRX", "REP", "AE", "XEM", "SNT",
+                           "ADA", "ALL"]
     # 'F:\\BitCoinDev\\conf\\config.ini
     def __init__(self):
 
@@ -131,20 +134,28 @@ class BithumbMachine(Machine):
 
         url_path = self.BASE_API_URL + wallet_status_api_path
 
-        endpoint_item_array = {
-            "endpoint" : endpoint,
-            "currency" : currency_type
+        # endpoint_item_array = {
+        #     "endpoint" : endpoint,
+        #     "currency" : currency_type
+        # }
+        #
+        # str_data, headers = self.common_function(endpoint,endpoint_item_array)
+        rgParams = {
+            "order_currency": "BTC",
+            "payment_currency": "KRW"
         }
+        api = XCoinAPI(self.CLIENT_ID,self.CLIENT_SECRET)
+        response = api.xcoinApiCall(endpoint,rgParams)
 
-        str_data, headers = self.common_function(endpoint,endpoint_item_array)
 
-        res = requests.post(url_path, headers=headers, data=str_data)
-        result = res.json()
-        return result
+        # res = requests.post(url_path, headers=headers, data=str_data)
+        # result = res.json()
+        return response
 
-    def get_my_order_status(self, currency_type):
+    def get_my_order_status(self, currency_type=None):
         """
         사용자의 현재 예약 중인 주문 현황을 조회하는 메서드 입니다.
+        :type currency_type: object
         :param currency_type: 코인 이름
         :return:
             거래 중인 현황을 리스트로 반환합니다.
@@ -156,16 +167,21 @@ class BithumbMachine(Machine):
         endpoint ="/info/orders"
         url_path = self.BASE_API_URL + endpoint
 
-        endpoint_item_array = {
-            "endpoint" : endpoint,
-            "currency" : currency_type
+        # endpoint_item_array = {
+        #     "endpoint" : endpoint,
+        #     "currency" : currency_type
+        # }
+        #
+        # str_data, headers = self.common_function(endpoint, endpoint_item_array)
+        # res = requests.post(url_path,headers=headers, data=str_data)
+        # result = res.json()
+        rgParams = {
+            "currency": currency_type,
+
         }
-
-        str_data, headers = self.common_function(endpoint,endpoint_item_array)
-        res = requests.post(url_path,headers=headers, data=str_data)
-        result = res.json()
-
-        return result
+        api = XCoinAPI(self.CLIENT_ID,self.CLIENT_SECRET)
+        response = api.xcoinApiCall(endpoint, rgParams)
+        return response
     def buy_order(self, currency_type=None, price=None, qty=None, order_type="bid"):
         """
         매수주문 실행 매소드
@@ -222,7 +238,7 @@ class BithumbMachine(Machine):
 
         return result
 
-    def cancel_order(self, currency_type=None, price=None, qty=None, order_type=None, order_id=None):
+    def cancel_order(self, currency_type=None, order_type=None, order_id=None):
         """
         매수주문 실행 매소드
         :param currency_type(str): 화폐종류
@@ -237,14 +253,21 @@ class BithumbMachine(Machine):
         endpoint = "/trade/cancel"
         url_path = self.BASE_API_URL + endpoint
 
-        endpoint_item_array ={
-            "endpoint": endpoint,
-            "order_currency": currency_type,
+        # endpoint_item_array ={
+        #     "endpoint": endpoint,
+        #     "order_currency": currency_type,
+        #     "type": order_type,
+        #     "order_id": order_id
+        # }
+        # str_data, headers = self.common_function(endpoint,endpoint_item_array)
+        # res = requests.post(url_path,headers=headers, data=str_data)
+        # result = res.json()
+
+        rgParams = {
+            "currency": currency_type,
             "type": order_type,
             "order_id": order_id
         }
-        str_data, headers = self.common_function(endpoint,endpoint_item_array)
-        res = requests.post(url_path,headers=headers, data=str_data)
-        result = res.json()
-
-        return result
+        api = XCoinAPI(self.CLIENT_ID,self.CLIENT_SECRET)
+        response = api.xcoinApiCall(endpoint, rgParams)
+        return response
