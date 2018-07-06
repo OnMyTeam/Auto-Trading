@@ -1,6 +1,6 @@
 import sys
 import traceback
-
+import datetime
 from autotrading.strategy.base_strategy import Strategy
 from autotrading.machine.bithumb_machine import BithumbMachine
 from autotrading.db.mongodb.mongodb_handler import MongoDBHandler
@@ -15,9 +15,12 @@ class StepTrade(Strategy):
     def __init__(self, machine=None, db_handler=None, strategy=None, currency_type=None, pusher=None):
         if machine is None or db_handler is None or currency_type is None or strategy is None:
             raise Exception("Need to machine, db, currency_type, Strategy")
-        # isinstance(object, classinfo)
-        # -> isinstance는 object가 classinfo의 인스턴스 인지 점검 후 True/False 값을 리턴한다.
-        # -> isinstance를 이용하여 object의 데이터 타입을 확인 할 수 있다.
+        """
+        isinstance(object, classinfo)
+        -> isinstance는 object가 classinfo의 인스턴스 인지 점검 후 True/False 값을 리턴한다.
+        -> isinstance를 이용하여 object의 데이터 타입을 확인 할 수 있다.
+        """
+
         if isinstance(machine, BithumbMachine):
             self.currency_type = currency_type
 
@@ -44,7 +47,7 @@ class StepTrade(Strategy):
         self.check_buy_completed()
         self.check_sell_ordered()
         self.check_sell_completed()
-        self.check_keeep_ordered()
+        self.check_keep_ordered()
 
     # 지속해서 주문할 목록들을 체크해서 일괄적으로 매수 주문함
     def check_buy_ordered(self):
@@ -55,7 +58,8 @@ class StepTrade(Strategy):
             order_result = self.machine.get_my_order_status(self.currency_type)
             logger.info(order_result)
 
-            if len(order_result) > 0 and order_result["data"]["status"] != "placed" and order_result["data"]["price"]==item["buy"]:
+            if len(order_result) > 0 and order_result["data"]["status"] != "placed" and order_result["data"]["price"] ==\
+                    item["buy"]:
                 order_result_dict = order_result["data"]
                 # 매수 체결되면 상태값 업데이트
                 real_buy_amount = float(order_result_dict["units"]) - float(order_result_dict["fee"])
@@ -70,15 +74,16 @@ class StepTrade(Strategy):
                              "buy_completed_time" : completed_time}
                     self.update_trade_status(db_handler=self.db_handler,item_id=item_id, value=value )
                     self.pusher.send_message(thread="#general", message= "buy_completed : %s" % (str(item)))
-            elif len(order_result) > 0 and order_result["data"]["status"] == "placed" and order_result["data"]["price"] == str(item["buy"]):
+            elif len(order_result) > 0 and order_result["data"]["status"] == "placed" and str(item["buy"]) == \
+                    order_result["data"]["price"]:
                 # 채결된 화폐의 마지막 거래금액이 주문한 화폐 가격과 step_value 금액보다 작으면 취소함
                 if int(item["buy"]) + int(self.params["step_value"]) <= self.last_val:
                     logger.info("CancelOrder")
                     logger.info(item)
                     #Cancel Order
                     try:
-                        self.order_cancel_transaction(machine=self.machine, db_handler=self.db_handler, currency_type=self.currency_type,
-                                                  item=item)
+                        self.order_cancel_transaction(machine=self.machine, db_handler=self.db_handler, currency_type=\
+                            self.currency_type, item=item)
                     except:
                         error = traceback.format_exc()
                         logger.info(error)
@@ -175,6 +180,63 @@ class StepTrade(Strategy):
                 self.order_buy_transaction(machine=self.machine, db_handler=self.db_handler, currency_type=self.currency_type,
                                            item=item)
                 logger.info("sell order form keeped %s" % (str(item["_id"])))
+
+
+
+
+    def scenario(self):
+        now = datetime.datetime.now()
+        five_min_ago = now - datetime.datetime(minute=5)
+        five_min_ago_timestamp = int(five_min_ago.timestamp())
+        pipeline_5m = [{
+            "$match" : {"timestamp":{"$gt": five_min_ago_timestamp}}},
+            {"$group":{"_id":"$coin",
+                       "min_val":{"$min": "$price"},
+                       "max_val":{"$max": "$price"},
+                       "sum_val":{"$sum": "amount"}}}
+        ]
+        five_min_result = self.db_handler.aggregate(pipeline_5m)
+
+        for item in five_min_result:
+            five_max_val = int(item["max_val"])
+            five_min_val = int(item["min_val"])
+            five_sum_val = int(item["sum_val"])
+            five_sum_avg_val = int(item["sum_val"])/5
+            five_gap = five_max_val - five_min_val
+
+        if float(five_min_val) < float(self.last_val):
+            self.pusher.send_message("#general", "down stream 5min min_val{0}, last_val{1}".format(str(five_min_val), str(self.last_val)))
+            return
+        if float(five_max_val) > float(self.last_val):
+            self.pusher.send_message("#general", "up stream 5min min_val{0}, last_val{1}".format(str(five_min_val), str(self.last_val)))
+        logger.info(("buy_price : {val}".format(val=str(self.last_val))))
+        my_orders = self.db_handler.find_item({
+            "currency": self.currency_type,
+            "$or": [{"status": "BUY_ORDERED"},{"status": "SELL_ORDERED"},{"status": "BUY_COMPLETED"}],
+            "buy": {"$gte": self.last_val - int(self.params["step_value"]),
+                    "$lte": self.last_val + int(self.params["step_value"])}}, "trader","trade_status")
+
+        if my_orders.count() > 0:
+            logger.info("Exists order in same price")
+            for order in my_orders:
+                logger.info("order: {order}".format(order=str(order)))
+        else:
+            logger.info("BUY_ORDER")
+            self.item = {"buy": str(self.last_val), "buy_amount": self.params["buy_amount"],
+                         "currency": self.currency_type, "desired_value": int(self.last_val + int(self.params["target_profit"])/float(self.params["buy_amount"]))}
+            logger.info(self.item)
+            wallet = self.machine.get_wallet_status(self.currency_type)
+            if int(wallet["data"]["available_krw"]) > int(self.last_val * float(self.params["buy_amount"])):
+                self.order_buy_transaction(machine=self.machine, db_handler=self.db_handler, currency_type=self.currency_type,
+                                           item=self.item)
+                self.pusher.send_message("#general", "buy_ordered {item}".format(item=str(self.item)))
+                self.check_buy_ordered()
+            else:
+                logger.info("krw is short")
+
+
+
+
 
 
 

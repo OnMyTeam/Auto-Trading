@@ -119,7 +119,7 @@ class BithumbMachine(Machine):
         api_sign = base64.b64encode(signature.hexdigest().encode('utf-8'))
         return api_sign
 
-    def get_wallet_status(self,currency_type="BTC"):
+    def get_wallet_status(self, currency_type="ADA"):
 
         if currency_type is None:
             raise Exception("Need to currency_type")
@@ -141,7 +141,7 @@ class BithumbMachine(Machine):
         #
         # str_data, headers = self.common_function(endpoint,endpoint_item_array)
         rgParams = {
-            "order_currency": "BTC",
+            "order_currency": currency_type,
             "payment_currency": "KRW"
         }
         api = XCoinAPI(self.CLIENT_ID,self.CLIENT_SECRET)
