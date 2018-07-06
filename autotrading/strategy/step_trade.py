@@ -232,7 +232,7 @@ class StepTrade(Strategy):
                 self.pusher.send_message("#general", "buy_ordered {item}".format(item=str(self.item)))
                 self.check_buy_ordered()
             else:
-                logger.info("krw is short")
+                logger.info("krw is short") 
 
 
 

@@ -2,8 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="90023978-5e52-4568-948c-0f602c15fcce" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/autotrading/machine/bithumb_machine.py" beforeDir="false" afterPath="$PROJECT_DIR$/autotrading/machine/bithumb_machine.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/autotrading/strategy/step_trade.py" beforeDir="false" afterPath="$PROJECT_DIR$/autotrading/strategy/step_trade.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -91,7 +89,7 @@
         <entry file="file://$PROJECT_DIR$/autotrading/strategy/step_trade.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="293">
-              <caret line="234" column="41" selection-start-line="234" selection-start-column="41" selection-end-line="234" selection-end-column="41" />
+              <caret line="234" column="44" selection-start-line="234" selection-start-column="44" selection-end-line="234" selection-end-column="44" />
               <folding>
                 <element signature="e#0#10#0" expanded="true" />
               </folding>
@@ -844,7 +842,7 @@
     <entry file="file://$PROJECT_DIR$/autotrading/strategy/step_trade.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="293">
-          <caret line="234" column="41" selection-start-line="234" selection-start-column="41" selection-end-line="234" selection-end-column="41" />
+          <caret line="234" column="44" selection-start-line="234" selection-start-column="44" selection-end-line="234" selection-end-column="44" />
           <folding>
             <element signature="e#0#10#0" expanded="true" />
           </folding>
