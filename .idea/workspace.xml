@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="90023978-5e52-4568-948c-0f602c15fcce" name="Default" comment="">
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/autotrading/strategy/step_trade.py" beforeDir="false" afterPath="$PROJECT_DIR$/autotrading/strategy/step_trade.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -85,14 +86,23 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="step_trade.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="step_trade.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/autotrading/strategy/step_trade.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="293">
-              <caret line="234" column="44" selection-start-line="234" selection-start-column="44" selection-end-line="234" selection-end-column="44" />
+            <state relative-caret-position="155">
+              <caret line="228" column="108" lean-forward="true" selection-start-line="228" selection-start-column="108" selection-end-line="228" selection-end-column="108" />
               <folding>
                 <element signature="e#0#10#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name=".gitignore" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/.gitignore">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="92">
+              <caret line="4" column="3" selection-start-line="4" selection-start-column="3" selection-end-line="4" selection-end-column="3" />
             </state>
           </provider>
         </entry>
@@ -138,7 +148,6 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/autotrading/api/a.py" />
-        <option value="$PROJECT_DIR$/.gitignore" />
         <option value="$PROJECT_DIR$/autotrading/db/b.py" />
         <option value="$PROJECT_DIR$/autotrading/db/mongodb/__init__.py" />
         <option value="$PROJECT_DIR$/autotrading/db/__init__.py" />
@@ -165,6 +174,7 @@
         <option value="$PROJECT_DIR$/autotrading/machine/xcoin_api_client.py" />
         <option value="$PROJECT_DIR$/autotrading/machine/bithumb_machine.py" />
         <option value="$PROJECT_DIR$/autotrading/strategy/step_trade.py" />
+        <option value="$PROJECT_DIR$/.gitignore" />
       </list>
     </option>
   </component>
@@ -537,10 +547,10 @@
     <frame x="-7" y="-7" width="1487" height="878" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.16564834" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.16564834" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.3962766" />
+      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.3962766" />
       <window_info anchor="bottom" id="Version Control" order="9" />
       <window_info anchor="bottom" id="Python Console" order="7" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
@@ -696,13 +706,6 @@
     <entry file="file://$PROJECT_DIR$/autotrading/machine/__init__.py">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/.gitignore">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="69">
-          <caret line="3" column="5" lean-forward="true" selection-start-line="3" selection-start-column="5" selection-end-line="3" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/autotrading/strategy/__init__.py">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -841,11 +844,18 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/autotrading/strategy/step_trade.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="293">
-          <caret line="234" column="44" selection-start-line="234" selection-start-column="44" selection-end-line="234" selection-end-column="44" />
+        <state relative-caret-position="155">
+          <caret line="228" column="108" lean-forward="true" selection-start-line="228" selection-start-column="108" selection-end-line="228" selection-end-column="108" />
           <folding>
             <element signature="e#0#10#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.gitignore">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="92">
+          <caret line="4" column="3" selection-start-line="4" selection-start-column="3" selection-end-line="4" selection-end-column="3" />
         </state>
       </provider>
     </entry>
