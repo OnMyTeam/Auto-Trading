@@ -28,7 +28,7 @@ class BithumbMachine(Machine):
     def __init__(self):
 
         config = configparser.ConfigParser()
-        config.read('F:\\BitCoinDev\\conf\\config.ini')
+        config.read('F:/BitCoinDev/BitCoinDev_Pycharm/conf/config.ini')
         self.CLIENT_ID = config['Bithumb']['connect_key']
         self.CLIENT_SECRET = config['Bithumb']['secret_key']
 
