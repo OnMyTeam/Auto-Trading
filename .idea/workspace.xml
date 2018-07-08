@@ -88,8 +88,8 @@
       <file leaf-file-name="step_trade.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/autotrading/strategy/step_trade.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="178">
-              <caret line="229" column="94" lean-forward="true" selection-start-line="229" selection-start-column="94" selection-end-line="229" selection-end-column="94" />
+            <state relative-caret-position="857">
+              <caret line="233" column="17" lean-forward="true" selection-start-line="233" selection-start-column="17" selection-end-line="233" selection-end-column="17" />
               <folding>
                 <element signature="e#0#10#0" expanded="true" />
               </folding>
@@ -543,9 +543,9 @@
     </history-entry>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-7" y="-7" width="1487" height="878" extended-state="6" />
+    <frame x="1912" y="-8" width="1858" height="1096" extended-state="6" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.16564834" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.165038" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
       <window_info anchor="bottom" id="Version Control" order="9" />
@@ -849,8 +849,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/autotrading/strategy/step_trade.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="178">
-          <caret line="229" column="94" lean-forward="true" selection-start-line="229" selection-start-column="94" selection-end-line="229" selection-end-column="94" />
+        <state relative-caret-position="857">
+          <caret line="233" column="17" lean-forward="true" selection-start-line="233" selection-start-column="17" selection-end-line="233" selection-end-column="17" />
           <folding>
             <element signature="e#0#10#0" expanded="true" />
           </folding>
